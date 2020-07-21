@@ -1,7 +1,7 @@
 # Modbus Server
-modbus_server.py is an example script that converts data of your rotavapor into a modbus server.
+Script modbus_server.py is an example script that converts data of your rotavapor into a modbus server.
 
-Script is updating holding registers of a modbus server from Rotavapor R-300 API in a loop and sending commands from modbus clients back to API.
+Script is updating holding registers of a modbus server from Rotavapor R-300 API in a loop and sending changes from modbus clients back to API.
 Modbus RTU server is not working currently because a bug in pymodbus. This pat is still under development.
 
 ## CSV mapping
