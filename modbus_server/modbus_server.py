@@ -30,9 +30,9 @@ from threading import Thread
 # configuration
 # --------------------------------------------------------------------------- #
 
-api_user = 'rw'
-api_password = 'tvPj2YZC'
-api_url = f"https://109.202.196.94:55055/api/v1"
+api_user = 'user'
+api_password = 'password'
+api_url = f"https://192.168.0.2:55055/api/v1"
 api_loop_time = 1               # loop duration in seconds
 
 modbus_type = 'TCP'             # 'TCP' or 'RTU'
@@ -308,7 +308,7 @@ def run_modbus_server():
     if modbus_type == 'TCP':
         StartTcpServer(context, identity=identity, address=(modbus_ip, modbus_tcpport))
     elif modbus_type == 'RTU':
-		# this part doesn't work because bug in pzmodbus, more info: https://github.com/riptideio/pymodbus/issues/514
+		# this part doesn't work because bug in pymodbus, more info: https://github.com/riptideio/pymodbus/issues/514
         StartSerialServer(context, framer=ModbusRtuFramer, identity=identity, port=modbus_port, baudrate=modbus_baudrate, parity=modbus_parity)
 
 if __name__ == "__main__":
