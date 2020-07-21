@@ -1,6 +1,6 @@
 '''
 This script is generating csv file with modbus mapping from main script.
-All values are stored in holding registers.
+All values are stored in holding registers and coded as signed integer.
 '''
 import modbus_server
 
