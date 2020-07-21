@@ -1,2 +1,2 @@
-# CSV Recorder
-csv_recorder.py is an example script that logs your rotavapor's data into CSV files.
+# Modbus Server
+modbus_server.py is an example script that reads and write data from your rotavapor's data into modbus server.
