@@ -32,7 +32,7 @@ from threading import Thread
 
 api_user = 'user'
 api_password = 'password'
-api_url = f"https://192.168.0.2:55055/api/v1"
+api_url = f"https://192.168.0.2:12345/api/v1"
 api_loop_time = 1               # loop duration in seconds
 
 modbus_type = 'TCP'             # 'TCP' or 'RTU'
