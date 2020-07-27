@@ -3,7 +3,8 @@
 ## Introduction
 BUCHI’s OpenInterface provides full and well documented access to all data an instrument produces and consumes. It provides approximately the same amount of functionality as can be accessed via the device’s on-screen menu. 
 
-The OpenInterface is a RESTful HTTP API. The documentation of this API can be found [here](https://developer.buchi.com/rotavapor/openinterface/doc/).
+The OpenInterface is a RESTful HTTP API. The API specification and documentation can be found here:
+* [Rotavapor](https://github.com/buchi-labortechnik-ag/openinterface_rotavapor).
 
 This repository contains instructions and examples that show how to interact with your BUCHI Rotavapor using Python.
 
@@ -21,12 +22,12 @@ For running the examples you will need the following information:
 
 Usernames and passwords are only shown at the time the OpenInterface is enabled. The IP address can be found via on-screen menus.
 
-Please consult the [API Documentation](https://developer.buchi.com/rotavapor/openinterface/doc/) for more detailled instructions.
+Please consult the [API specification and documentation](https://github.com/buchi-labortechnik-ag/openinterface_rotavapor) for more detailled instructions.
 
 ## Examples
 * [CSV Recorder](./csv_recorder/)
 * [Stop at a certain vapor temperature](./stop_at_vaportemp/)
-
+* [Modbus](./modbus_server/)
 
 
 ## Basic usage
@@ -34,18 +35,18 @@ Easiest way to interact with a Rotavapor from Python is by using the requests pa
 
 1. Create a requests session
 
-    ```python
+    ``` python
     import requests
     session = requests.Session()
     ```
-2. Specify username and password
+2. Specify username and password (these credentials you get when you enable the OpenInterface on the device)
 
-    ```python
+    ``` python
     session.auth = ('user', 'password')
     ```
-3. Provide the OpenInterface root cert or disable cert checks
+3. Provide the OpenInterface root cert or disable cert checks.
 
-    ```python
+    ``` python
     rootcert = 'path/to/root.crt'
     if path.isfile(rootcert):
         session.verify = rootcert
@@ -53,17 +54,17 @@ Easiest way to interact with a Rotavapor from Python is by using the requests pa
         session.verify = False
     ```
 4. Either read some data
-    ```python
+    ``` python
     rotavapor_ip = '192.168.1.234'
     base_url = f"https://{rotavapor_ip}/api/v1"
     info_endpoint = base_url + "/info"
     get_info_resp = session.get(info_endpoint)
-    info_msg = info_endpoint.json()
+    info_msg = get_info_resp.json()
     system_name = info_msg["systemName"]
     print(f"The name of the device is {system_name}")
     ```
 5. Or write some data
-    ```python
+    ``` python
     rotavapor_ip = '192.168.1.234'
     base_url = f"https://{rotavapor_ip}/api/v1"
     process_endpoint = base_url + "/process"
@@ -71,7 +72,7 @@ Easiest way to interact with a Rotavapor from Python is by using the requests pa
     set_vacuum_resp = session.put(process_endpoint, json=set_vacuum_msg)
     ```
 
-Details about the schema of requests / replies can be found in the  [API Documentation](https://developer.buchi.com/rotavapor/openinterface/doc/)
+Details about the schema of requests / replies can be found in the  [API Documentation](https://developer.buchi.digital/rotavapor/openinterface/doc/index.html)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
