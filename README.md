@@ -4,7 +4,7 @@
 BUCHI’s OpenInterface provides full and well documented access to all data an instrument produces and consumes. It provides approximately the same amount of functionality as can be accessed via the device’s on-screen menu. 
 
 The OpenInterface is a RESTful HTTP API. The API specification and documentation can be found here:
-* [Rotavapor](https://github.com/buchi-labortechnik-ag/openinterface_rotavapor).
+* [Rotavapor](https://github.com/buchi-labortechnik-ag/openinterface_rotavapor)
 
 This repository contains instructions and examples that show how to interact with your BUCHI Rotavapor using Python.
 
@@ -28,6 +28,7 @@ Please consult the [API specification and documentation](https://github.com/buch
 * [CSV Recorder](./csv_recorder/)
 * [Stop at a certain vapor temperature](./stop_at_vaportemp/)
 * [Modbus](./modbus_server/)
+* [Live View (Jupyter Notebook)](./jupyer_lab)
 
 
 ## Basic usage
