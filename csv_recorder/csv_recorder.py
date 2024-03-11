@@ -79,7 +79,7 @@ if __name__ == "__main__":
     base_url = f"https://{args.host}/api/v1"
     info_endpoint = base_url + "/info"
     process_endpoint = base_url + "/process"
-    rootcert = "root_cert.crt"
+    rootcert = args.cert
 
     # configure http client session
     session = requests.Session()
